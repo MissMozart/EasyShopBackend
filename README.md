@@ -48,7 +48,8 @@ The SQL query inside the method was missing a clause for the maximum price:
      "SELECT * FROM products " +
     "WHERE (category_id = ? OR ? = -1) " +
     "   AND (price <= ? OR ? = -1) " +
-    **"   AND (price >= ? OR ? = -1) " // added to look for products between min and max price** + "   AND (color = ? OR ? = '') ";
+    "   AND (price >= ? OR ? = -1) " // added to look for products between min and max price +   
+    "   AND (color = ? OR ? = '') ";
 
 The second thing that needed to be added in the search method in order for the search functionality to work properly was:
 > **statement.setBigDecimal(3, maxPrice);**
@@ -68,6 +69,11 @@ This code needed to be changed from:
 
 To:
 > **productDao.update(id, product); // updates an existing product**
+
+## How to run this project
+
+Because this project has a frontend and backend part to it, you need to open the frontend code, open the index.html file and open it in the browser.
+This will show you the web application. 
 
 ## Acknowledgements
 
