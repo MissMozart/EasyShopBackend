@@ -53,11 +53,11 @@ The SQL query inside the method was missing a clause for the maximum price:
 
 The second thing that needed to be added in the search method in order for the search functionality to work properly was:
 > **statement.setBigDecimal(3, maxPrice);**
-**statement.setBigDecimal(4, maxPrice);**
+> **statement.setBigDecimal(4, maxPrice);**
 
 This was needed in order for this SQL clause to have the proper parameter:
 
-    **"   AND (price <= ? OR ? = -1) "**
+    "   AND (price <= ? OR ? = -1) "
 
 ### Bug 2
 
