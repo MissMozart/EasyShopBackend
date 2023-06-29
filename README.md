@@ -45,7 +45,7 @@ This bug needed to be fixed in the MySqlProductDao class, in the search() method
 
 The SQL query inside the method was missing a clause for the maximum price:
 
-     "SELECT * FROM products " +
+    "SELECT * FROM products " +
     "WHERE (category_id = ? OR ? = -1) " +
     "   AND (price <= ? OR ? = -1) " +
     "   AND (price >= ? OR ? = -1) " // added to look for products between min and max price +   
