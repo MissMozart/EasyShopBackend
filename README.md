@@ -72,8 +72,8 @@ To:
 
 ## How to run this project
 
-Because this project has a frontend and backend part to it, you need to open the frontend code, open the index.html file and open it in the browser.
-This will show you the web application. 
+Because this project has a frontend and backend part to it, you will need the frontend code which is in a folder inside this project. 
+Open it separately, then bring up the index.html file to open it in a browser. That way you can see the web application.
 
 ## Acknowledgements
 
