@@ -45,18 +45,18 @@ This bug needed to be fixed in the MySqlProductDao class, in the search() method
 
 The SQL query inside the method was missing a clause for the maximum price:
 
-"SELECT * FROM products " +
-"WHERE (category_id = ? OR ? = -1) " +
-"   AND (price <= ? OR ? = -1) " +
-**"   AND (price >= ? OR ? = -1) " // added to look for products between min and max price** + "   AND (color = ? OR ? = '') ";
+     "SELECT * FROM products " +
+    "WHERE (category_id = ? OR ? = -1) " +
+    "   AND (price <= ? OR ? = -1) " +
+    **"   AND (price >= ? OR ? = -1) " // added to look for products between min and max price** + "   AND (color = ? OR ? = '') ";
 
 The second thing that needed to be added in the search method in order for the search functionality to work properly was:
-**statement.setBigDecimal(3, maxPrice);**
+> **statement.setBigDecimal(3, maxPrice);**
 **statement.setBigDecimal(4, maxPrice);**
 
 This was needed in order for this SQL clause to have the proper parameter:
 
-**"   AND (price <= ? OR ? = -1) "**
+    **"   AND (price <= ? OR ? = -1) "**
 
 ### Bug 2
 
@@ -64,10 +64,10 @@ The second bug in the code caused a new product to be created when the admin tri
 This was solved by changing the code inside the ProductController class, inside the updateProduct() method. 
 
 This code needed to be changed from:
-**productDao.create(product); // creates a new product**
+> **productDao.create(product); // creates a new product**
 
 To:
-**productDao.update(id, product); // updates an existing product**
+> **productDao.update(id, product); // updates an existing product**
 
 ## Acknowledgements
 
